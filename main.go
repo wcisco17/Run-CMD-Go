@@ -27,7 +27,7 @@ func main() {
 	app.Usage = "Let's you traverse through your directory and run files"
 	app.Version = "1.0.0"
 
-	// Enter own source path
+	// Enter your own source path example: *, src/projectName
 	dirname := "../../../Desktop/"
 
 	// Kill Paths and ports
@@ -75,6 +75,11 @@ func main() {
 				return nil
 			},
 		},
+		/*
+			Command "pow" lets you traverse through your application and
+			run commands like so: "yarn start", "yarn build" or "npm start", "npm build"
+			finally enter project directory and run the specific path.
+		*/
 		{
 			Name:  "pow",
 			Usage: "Enter File name and start command for application",
@@ -83,12 +88,6 @@ func main() {
 				var paths string
 				var runCmd1 string
 				var runCmd2 string
-
-				/* Todo:
-				* Show The List of directories within the path
-				* Command: terminates the port running exp: 3000
-				* Use Command: kill -9 $(lsof -i:3000 -t) 2> /dev/null, to kill port
-				 */
 
 				fmt.Println("Enter First Part of The Command To Run: ")
 				_, errcmd1 := fmt.Scan(&runCmd1)
@@ -115,6 +114,10 @@ func main() {
 				return nil
 			},
 		},
+		/*
+			Enter port number and excuting a Kill command to terminate all Ports.
+			** Still Need to fix execution not properly done.
+		*/
 		{
 			Name:  "stop",
 			Usage: "Command Kills All ports by using this command: kill -9 $(lsof -i:3000 -t) 2> /dev/null",
